@@ -10,6 +10,8 @@ namespace Trabalho_C__2BM
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
+
             // === VARIAVEIS DE ACUMULACAO DO DIA ===
             int totalPedidos = 0;
             int totalItens = 0;
@@ -37,11 +39,14 @@ namespace Trabalho_C__2BM
 
             do
             {
-                Console.WriteLine("=== BURGUERIA ===");
+                Console.WriteLine("==============================");
+                Console.WriteLine("=== BURGUERIA🍔 ===");
+                Console.WriteLine("==============================");
                 Console.WriteLine("1. Novo pedido");
                 Console.WriteLine("2. Ver relatório do dia");
                 Console.WriteLine("3. Resetar dados do dia");
                 Console.WriteLine("0. Encerrar sistema");
+                Console.WriteLine("==============================");
                 Console.Write("Escolha: ");
 
                 opcaoMenu = int.Parse(Console.ReadLine());
@@ -160,30 +165,6 @@ namespace Trabalho_C__2BM
 
                     case 2:
                         Console.Clear();
-
-                        //int maior = cont1;
-                        //string maisVendido = "X-Burguer";
-
-                        //if (cont2 > maior)
-                        //{
-                        //    maior = cont2;
-                        //    maisVendido = "X-Bacon";
-                        //}
-                        //if (cont3 > maior)
-                        //{
-                        //    maior = cont3;
-                        //    maisVendido = "Porção de Fritas";
-                        //}
-                        //if (cont4 > maior)
-                        //{
-                        //    maior = cont4;
-                        //    maisVendido = "Refrigerante";
-                        //}
-                        //if (cont5 > maior)
-                        //{
-                        //    maior = cont5;
-                        //    maisVendido = "Suco Natural";
-                        //}
 
                         int maior = cont1;
                         string maisPedido = "X-Burguer";
