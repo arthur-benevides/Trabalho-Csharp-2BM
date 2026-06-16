@@ -75,35 +75,35 @@ namespace Trabalho_C__2BM
                                     subtotal += precoXBurguer;
                                     itens++;
                                     cont1++;
-                                    Console.WriteLine($" >> X-Burguer adicionado (subtotal: R$ {subtotal})");
+                                    Console.WriteLine($" >> X-Burguer adicionado (subtotal: R$ {subtotal.ToString("F2")})");
                                     break;
 
                                 case 2:
                                     subtotal += precoXBacon;
                                     itens++;
                                     cont2++;
-                                    Console.WriteLine($" >> X-Bacon adicionado (subtotal: R$ {subtotal})");
+                                    Console.WriteLine($" >> X-Bacon adicionado (subtotal: R$ {subtotal.ToString("F2")})");
                                     break;
 
                                 case 3:
                                     subtotal += precoFritas;
                                     itens++;
                                     cont3++;
-                                    Console.WriteLine($" >> Porção de Fritas adicionado (subtotal: R$ {subtotal})");
+                                    Console.WriteLine($" >> Porção de Fritas adicionado (subtotal: R$ {subtotal.ToString("F2")})");
                                     break;
 
                                 case 4:
                                     subtotal += precoRefri;
                                     itens++;
                                     cont4++;
-                                    Console.WriteLine($" >> Refigrerante adicionado (subtotal: R$ {subtotal})");
+                                    Console.WriteLine($" >> Refigrerante adicionado (subtotal: R$ {subtotal.ToString("F2")})");
                                     break;
 
                                 case 5:
                                     subtotal += precoSuco;
                                     itens++;
                                     cont5++;
-                                    Console.WriteLine($" >> Suco Natural adicionado (subtotal: R$   {subtotal})");
+                                    Console.WriteLine($" >> Suco Natural adicionado (subtotal: R$   {subtotal.ToString("F2")})");
                                     break;
 
                                 case 0:
@@ -127,31 +127,27 @@ namespace Trabalho_C__2BM
                         if (subtotal <= 29.99)
                         {
                             desconto = 0;
-                            Console.WriteLine($"R$ {desconto}   (Sem desconto)");
                         }
                         else if (subtotal >= 30.00 && subtotal <= 59.99)
                         {
                             desconto = subtotal * 0.05;
-                            Console.WriteLine($"R$ {desconto}   (5% de desconto)");
                         }
                         else if (subtotal >= 60.00 && subtotal <= 99.99)
                         {
                             desconto = subtotal * 0.10;
-                            Console.WriteLine($"R$ {desconto}   (10% de desconto)");
                         }
                         else
                         {
-                            desconto = subtotal * 0.15;
-                            Console.WriteLine($"R$ {desconto}   (15% de desconto)");
+                            desconto = subtotal * 0.15; 
                         }
 
                         double total = subtotal - desconto;
 
                         Console.WriteLine("\n--- RESUMO DO PEDIDO ---");
                         Console.WriteLine($"Itens: {itens}");
-                        Console.WriteLine($"Subtotal: {subtotal}");
-                        Console.WriteLine($"Desconto: {desconto} {(desconto > 0 ? "(com desconto)" : "(sem desconto)")}");
-                        Console.WriteLine($"TOTAL: R$ {total}");
+                        Console.WriteLine($"Subtotal: R$ {subtotal.ToString("F2")}");
+                        Console.WriteLine($"Desconto: {desconto.ToString("F2")} {(desconto > 0 ? "(com desconto)" : "(sem desconto)")}");
+                        Console.WriteLine($"TOTAL: R$ {total.ToString("F2")}");
 
                         totalPedidos++;
                         totalItens += itens;
@@ -165,43 +161,61 @@ namespace Trabalho_C__2BM
                     case 2:
                         Console.Clear();
 
+                        //int maior = cont1;
+                        //string maisVendido = "X-Burguer";
+
+                        //if (cont2 > maior)
+                        //{
+                        //    maior = cont2;
+                        //    maisVendido = "X-Bacon";
+                        //}
+                        //if (cont3 > maior)
+                        //{
+                        //    maior = cont3;
+                        //    maisVendido = "Porção de Fritas";
+                        //}
+                        //if (cont4 > maior)
+                        //{
+                        //    maior = cont4;
+                        //    maisVendido = "Refrigerante";
+                        //}
+                        //if (cont5 > maior)
+                        //{
+                        //    maior = cont5;
+                        //    maisVendido = "Suco Natural";
+                        //}
+
                         int maior = cont1;
-                        string maisVendido = "X-Burguer";
+                        string maisPedido = "X-Burguer";
+                        for (int i = 2; i <= 5; i++)
+                        {
+                            int atual = 0;
+                            string nome = "";
 
-                        if (cont2 > maior)
-                        {
-                            maior = cont2;
-                            maisVendido = "X-Bacon";
-                        }
-                        if (cont3 > maior)
-                        {
-                            maior = cont3;
-                            maisVendido = "Porção de Fritas";
-                        }
-                        if (cont4 > maior)
-                        {
-                            maior = cont4;
-                            maisVendido = "Refrigerante";
-                        }
-                        if (cont5 > maior)
-                        {
-                            maior = cont5;
-                            maisVendido = "Suco Natural";
-                        }
+                            if (i == 2) { atual = cont2; nome = "X-Bacon"; }
+                            else if (i == 3) { atual = cont3; nome = "Porcao de Fritas"; }
+                            else if (i == 4) { atual = cont4; nome = "Refrigerante"; }
+                            else if (i == 5) { atual = cont5; nome = "Suco Natural"; }
 
+                            if (atual > maior)
+                            {
+                                maior = atual;
+                                maisPedido = nome;
+                            }
+                        }
                         double receitaLiquida = 0;
                         receitaLiquida = receitaBruta - totalDescontos;
 
                         Console.WriteLine("--- RELATÓRIO DO DIA ---");
                         Console.WriteLine($"Pedidos realizados: {totalPedidos} {(totalPedidos == 1 ? "pedido" : "pedidos")}");
                         Console.WriteLine($"Total de itens vendidos: {totalItens}");
-                        Console.WriteLine($"Receita bruta: {receitaBruta}");
-                        Console.WriteLine($"Total de descontos: {totalDescontos}");
-                        Console.WriteLine($"RÉCEITA LIQUIDA: {receitaLiquida}");
+                        Console.WriteLine($"Receita bruta: {receitaBruta.ToString("F2")}");
+                        Console.WriteLine($"Total de descontos: {totalDescontos.ToString("F2")}");
+                        Console.WriteLine($"RÉCEITA LIQUIDA: {receitaLiquida.ToString("F2")}");
 
                         if (totalItens > 0)
                         {
-                            Console.WriteLine($"Produto mais vendido: {maisVendido} ({maior} unidades)");
+                            Console.WriteLine($"Produto mais vendido: {maisPedido} ({maior} unidades)");
                         }
                         else
                         {
