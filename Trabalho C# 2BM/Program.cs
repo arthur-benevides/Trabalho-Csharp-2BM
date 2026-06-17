@@ -61,16 +61,16 @@ namespace Trabalho_C__2BM
                         int itens = 0;
                         double subtotal = 0;
 
+                        Console.WriteLine("Cardápio: ");
+                        Console.WriteLine(" [1] X-Burguer          R$ 18,00");
+                        Console.WriteLine(" [2] X-Bacon            R$ 22,00");
+                        Console.WriteLine(" [3] Porção de Fritas   R$ 12,00");
+                        Console.WriteLine(" [4] Refrigerante       R$ 7,00");
+                        Console.WriteLine(" [5] Suco Natural       R$ 9,00");
+                        Console.WriteLine(" [0] Fechar pedido");
+
                         do
                         {
-                            Console.WriteLine("Cardápio: ");
-                            Console.WriteLine(" [1] X-Burguer          R$ 18,00");
-                            Console.WriteLine(" [2] X-Bacon            R$ 22,00");
-                            Console.WriteLine(" [3] Porção de Fritas   R$ 12,00");
-                            Console.WriteLine(" [4] Refrigerante       R$ 7,00");
-                            Console.WriteLine(" [5] Suco Natural       R$ 9,00");
-                            Console.WriteLine(" [0] Fechar pedido");
-
                             Console.Write("Produto: ");
                             produtos = int.Parse(Console.ReadLine());
 
@@ -117,6 +117,7 @@ namespace Trabalho_C__2BM
                                 default:
                                     Console.WriteLine("Código inválido. Por favor digite um código válido");
                                     break;
+                                    Console.Clear();
                             }
                         } while (produtos != 0);
 
@@ -161,6 +162,7 @@ namespace Trabalho_C__2BM
 
                         Console.WriteLine("\nPedido resgistrado! Pressione ENTER para continuar...");
                         Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case 2:
@@ -205,6 +207,7 @@ namespace Trabalho_C__2BM
 
                         Console.WriteLine("\nPressione ENTER para continuar...");
                         Console.ReadLine();
+                        Console.Clear();
                         break;
 
                     case 3:
@@ -237,6 +240,7 @@ namespace Trabalho_C__2BM
 
                         Console.WriteLine("Pressione ENTER para continuar...");
                         Console.ReadLine();
+                        Console.Clear();
                         break;
 
 
@@ -248,6 +252,7 @@ namespace Trabalho_C__2BM
                         Console.WriteLine("Opção inválida. Digite 0, 1, 2 ou 3");
                         Console.WriteLine("Pressione ENTER para continuar...");
                         Console.ReadLine();
+                        Console.Clear();
                         break;
                 }
             } while (opcaoMenu != 0);
